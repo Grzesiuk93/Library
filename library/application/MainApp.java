@@ -53,7 +53,7 @@ public class MainApp extends Application {
         try {
             //Load member overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("/library/view/AddShowUserPane.fxml"));
+            loader.setLocation(MainApp.class.getResource("/library/view/EditMemberPane.fxml"));
             AnchorPane memberOverview = (AnchorPane) loader.load();
 
             //Set member overview into the center of root layout.
