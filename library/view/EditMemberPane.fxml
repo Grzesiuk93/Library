@@ -56,7 +56,7 @@
                   <ButtonBar layoutX="76.0" layoutY="244.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="76.0">
                     <buttons>
                       <Button fx:id="newUserButton" mnemonicParsing="false" onAction="#addNewMember" text="New User" />
-                        <Button fx:id="editButton" mnemonicParsing="false" text="Edit" />
+                        <Button fx:id="editButton" mnemonicParsing="false" onAction="#editMember" text="Edit" />
                         <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDeleteMember" text="Delete" />
                     </buttons>
                   </ButtonBar>
