@@ -15,7 +15,7 @@ import library.application.MainApp;
 import library.data.Member;
 
 
-public class AddShowUserController implements Initializable {
+public class EditMemberController implements Initializable {
 	
 		@FXML
 	    private TableView<Member> memberTable;
@@ -49,7 +49,7 @@ public class AddShowUserController implements Initializable {
 	    
 	    private MainApp mainApp;
 	    
-	    public AddShowUserController() {}
+	    public EditMemberController() {}
 	    
 	    private void showMemberDetails(Member member) {
 	    	if(member != null) {
@@ -78,10 +78,31 @@ public class AddShowUserController implements Initializable {
 	    }
 	    
 	    @FXML
+	    private void editMember() {
+	    	Member selectedMember = memberTable.getSelectionModel().getSelectedItem();
+	    	if(selectedMember != null) {
+	    		boolean okClicked = mainApp.showNewMemberDialog(selectedMember);
+	    		if(okClicked) {
+	    			showMemberDetails(selectedMember);
+	    		}
+	    	}
+	    	else {
+	    		Alert alert = new Alert(AlertType.WARNING);
+	            alert.initOwner(mainApp.getPrimaryStage());
+	            alert.setTitle("No Selection");
+	            alert.setHeaderText("No Person Selected");
+	            alert.setContentText("Please select a person in the table.");
+
+	            alert.showAndWait();
+	    	}
+	    }
+	    
+	    @FXML
 	    private void handleDeleteMember() {
 	    	int rowSelected = memberTable.getSelectionModel().getSelectedIndex();
 	    	if(rowSelected >= 0) {
 	    		memberTable.getItems().remove(rowSelected);
+	    		//memberTable.getItems().remove(memberTable.getSelectionModel().getSelectedIndex())
 	    	}
 	    	else {
 	    		// Nothing selected.
@@ -92,10 +113,7 @@ public class AddShowUserController implements Initializable {
 	            alert.setContentText("You have to select a member");
 	            alert.showAndWait();
 	    	}
-	    	
-	    	
-	    	
-	    	//memberTable.getItems().remove(memberTable.getSelectionModel().getSelectedIndex());
+	    	;
 	    }
 	    
 	    /*We need to get informed whenever user selects a person in the person table, that means there must
