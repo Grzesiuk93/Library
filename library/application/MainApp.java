@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import library.controller.AddShowUserController;
+import library.controller.EditMemberController;
 import library.controller.NewMemberDialogController;
 import library.data.Member;
 import javafx.scene.Scene;
@@ -60,7 +60,7 @@ public class MainApp extends Application {
             rootLayout.setCenter(memberOverview);
             
             //Gives the controller an access to the main app.
-            AddShowUserController controller = loader.getController();
+            EditMemberController controller = loader.getController();
             controller.setMainApp(this);
             
         } catch (IOException e) {
